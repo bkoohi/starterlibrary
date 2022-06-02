@@ -55,7 +55,7 @@ resource "ibm_is_subnet" "cam_subnet" {
 #}
 
 #Use SSHKey
-resource "ibm_is_ssh_key" "cam_sshkey" {
+data "ibm_is_ssh_key" "cam_sshkey" {
   name       = var.public_ssh_key
 }
 
