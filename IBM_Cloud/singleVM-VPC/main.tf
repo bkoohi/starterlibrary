@@ -49,10 +49,16 @@ resource "ibm_is_subnet" "cam_subnet" {
 }
 
 #Create SSHKey
+#resource "ibm_is_ssh_key" "cam_sshkey" {
+#  name       = "${var.resource_prefix}-ssh-${random_integer.key.result}"
+#  public_key = var.public_ssh_key
+#}
+
+#Use SSHKey
 resource "ibm_is_ssh_key" "cam_sshkey" {
-  name       = "${var.resource_prefix}-ssh-${random_integer.key.result}"
-  public_key = var.public_ssh_key
+  name       = var.public_ssh_key
 }
+
 
 #Create VSI
 resource "ibm_is_instance" "cam-server" {
